@@ -1,0 +1,40 @@
+/* Dropdown menüsünü gizli tutuyoruz başlangıçta */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    border: 1px solid black;
+    background-color: white;
+    margin-top: 5px;
+    border-radius: 5px;
+    z-index: 1000;
+    width: 150px;
+  }
+  
+  .dropdown-menu.open {
+    display: block;
+    animation: slideDown 0.3s ease-in-out;
+  }
+  
+  /* Menü öğeleri */
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  /* Hover efekti */
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Aşağıya doğru açılma animasyonu */
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px); /* Yukarıdan başlaması */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Aşağıya doğru açılma */
+    }
+  }
+  

@@ -1,27 +1,27 @@
-import { useState } from 'react';
-import './AdToDo.css';
+import { useState } from "react";
 
-const AdToDo =({onAddToDo})=>{
+const AdToDo = ({ onAddToDo }) => {
+  const [newToDo, setNewToDo] = useState("");
 
-    const [inputValue, setInputValue] = useState('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (newToDo.trim() === "") return;
 
-  const handleAddToDo =()=>{
-    if (inputValue.trim== '') return;
-    const newToDo = {name:inputValue};
-    onAddToDo(newToDo)
-    setInputValue('');
+    onAddToDo({ name: newToDo });
+    setNewToDo("");
   };
-    return(
-        <div >
-            <input
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
         type="text"
-        placeholder="Yeni görev ekle..."
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Yeni görev ekle"
+        value={newToDo}
+        onChange={(e) => setNewToDo(e.target.value)}
       />
-       <button onClick={handleAddToDo}>Ekle</button>
-        </div>
-    );
+      <button type="submit">Ekle</button>
+    </form>
+  );
 };
 
 export default AdToDo;
