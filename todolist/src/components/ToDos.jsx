@@ -1,16 +1,13 @@
 import { useState } from "react";
 import "./ToDos.css";
 
-const ToDos = ({toDoarray}) => {
+const ToDos = ({toDoarray,clickedDeleteButton}) => {
     const [showButtons,setShowButtons]=useState(false);
-    const [deleteButton,setDeleteButton]=useState(false);
+
     const handleSeeMore = () => {
         setShowButtons(true);
     }
 
-    const handleDeleteButton = ()=>{
-        setDeleteButton(true);
-    }
   return (
     <div>
         
@@ -25,15 +22,11 @@ const ToDos = ({toDoarray}) => {
         cursor: 'pointer',
       }}>
             <p>iş: {item.name}</p>
-            {deleteButton && (
-        <div >
-          silindi
-
-        </div>
-      )}
+            
+      
             {showButtons && (
         <div style={{ marginTop: '10px' }}>
-          <button onClick={handleDeleteButton}>Sil</button>
+          <button onClick={() => clickedDeleteButton(index)}>Sil</button>
           <button>Tamamla</button>
 
         </div>

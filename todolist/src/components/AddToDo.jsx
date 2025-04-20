@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import './AdToDo.css';
+import './AddToDo.css';
 
-const AdToDo =({onAddToDo})=>{
+const AddToDo =({onAddToDo})=>{
 
     const [inputValue, setInputValue] = useState('');
 
   const handleAddToDo =()=>{
-    if (inputValue.trim== '') return;
+    if (inputValue.trim() === '') {
+      return;
+    };
     const newToDo = {name:inputValue};
     onAddToDo(newToDo)
     setInputValue('');
@@ -24,4 +26,4 @@ const AdToDo =({onAddToDo})=>{
     );
 };
 
-export default AdToDo;
+export default AddToDo;
